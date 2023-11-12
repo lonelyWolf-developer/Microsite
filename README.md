@@ -1,2 +1,2 @@
-#GrandmasCakes
+# GrandmasCakes
 This is an example of a simple microsite for personal advertising. It is just one page with a navigation bar that links to the different sections on the website. One of these sections is contact. It uses the php mail() function. The reference section uses lightbox2 to present images. The other sections are text only.

@@ -1,0 +1,91 @@
+@mixin background(){
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@mixin displayFlex($direction: row){
+    display: flex;
+    flex-direction: $direction;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin formular($light: true){
+    form {
+        @include displayFlex(column);
+
+        input,
+        textarea {
+            display: block;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 15px;
+            outline: none;
+            padding: 10px;
+            font-size: 20px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        textarea {
+            width: 350px;
+            height: 50px;
+        }
+
+        input[type="number"]{
+            width: 60px;
+            margin: 0;
+            display: block;            
+        }
+
+        textarea {
+            height: 250px;
+            font-size: 22px;
+        }
+
+        label{
+            color: $thirdColor;
+            display: block;
+            font-size: 25px;
+            margin-right: 10px;
+            width: 250px;
+        }
+
+        .cakeNumber{
+            width: 350px;
+            height: 70px;
+            margin-bottom: 10px;
+            @include displayFlex();
+        }
+
+        input[type="submit"] {
+            width: 100px;
+            height: 60px;
+            color: $thirdColor;
+            font-weight: bolder;
+            font-size: 20px;
+
+            @if $light{
+                background: $primaryColor;
+            }@else{
+                background: $secondaryColor;
+            }
+
+            &:hover {
+                transition: 0.5s;
+                
+                @if $light{
+                    background: $secondaryColor;
+                }@else{
+                    background: $primaryColor;
+                    border: 1px solid $thirdColor;
+                }
+            }
+        }
+
+    }
+}

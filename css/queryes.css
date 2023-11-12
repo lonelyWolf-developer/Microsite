@@ -1,0 +1,61 @@
+@media (max-width: 925px) {
+  .mainHeaderContainer h1 {
+    font-size: 80px;
+  }
+  .mainHeaderContainer h2 {
+    font-size: 40px;
+  }
+  .text {
+    width: auto !important;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+@media (max-width: 790px) {
+  .row {
+    flex-direction: column !important;
+  }
+}
+@media (max-width: 460px) {
+  nav {
+    height: 180px;
+  }
+  nav ul {
+    flex-direction: column;
+  }
+  nav ul li {
+    margin-top: 5px;
+  }
+  .text {
+    margin-bottom: 20px;
+  }
+  .sectionHeader {
+    font-size: 50px;
+    margin-top: 140px;
+  }
+  .whatWeDo, .whoWeAre {
+    padding-top: 40px;
+  }
+  .photos {
+    padding-top: 180px !important;
+    padding-bottom: 20px;
+  }
+}
+@media (max-width: 400px) {
+  .photo {
+    width: 280px !important;
+    margin: 5px !important;
+  }
+  .contact input[type=text],
+  .contact input[type=tel],
+  .contact input[type=email],
+  .contact textarea, .order input[type=text],
+  .order input[type=tel],
+  .order input[type=email],
+  .order textarea {
+    width: 280px !important;
+  }
+  .cakeNumber {
+    width: 280px !important;
+  }
+}/*# sourceMappingURL=queryes.css.map */

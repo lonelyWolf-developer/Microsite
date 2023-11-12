@@ -1,0 +1,398 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../img/appleCake.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  background: rgb(31, 30, 30);
+}
+nav ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+nav ul li {
+  display: block;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+nav ul li a {
+  text-decoration: none;
+  font-size: 25px;
+}
+nav ul li a:link, nav ul li a:visited {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+nav ul li a:hover, nav ul li a:active {
+  transition: 0.5s;
+  color: rgb(128, 128, 128);
+}
+nav ul li a.active {
+  text-decoration: overline;
+  pointer-events: none;
+  color: rgb(128, 128, 128);
+}
+
+.mainHeaderContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.mainHeaderContainer h1 {
+  font-size: 120px;
+  color: rgb(255, 255, 255);
+  margin-bottom: 40px;
+  animation: fromTop 2s linear;
+  padding: 5px;
+}
+.mainHeaderContainer h2 {
+  font-size: 60px;
+  color: rgb(255, 255, 255);
+  animation: fromBottom 2s linear;
+  padding: 5px;
+}
+
+.whatWeDo {
+  min-height: 100vh;
+  background: rgb(71, 66, 66);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.whatWeDo .text {
+  width: 800px;
+}
+.whatWeDo .text p {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+.whoWeAre {
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../img/chocolateCake.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.whoWeAre .text {
+  width: 800px;
+}
+.whoWeAre .text p {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+.referention {
+  min-height: 100vh;
+  background: rgb(71, 66, 66);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.referention .photos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 40px;
+}
+.referention .photos .row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.referention .photos .row .photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 350px;
+  height: 300px;
+  margin: 20px;
+  background: rgb(188, 176, 176);
+  border-radius: 20px;
+}
+.referention .photos .row .photo a {
+  width: 90%;
+}
+.referention .photos .row .photo a img {
+  width: 100%;
+  border-radius: 10px;
+}
+.referention .photos .row .photo a:hover {
+  transition: 0.5s;
+}
+.referention .photos .row .photo a:hover img {
+  opacity: 0.5;
+}
+
+.order {
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../img/whiteChocolateCake.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.order form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.order form input,
+.order form textarea {
+  display: block;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 15px;
+  outline: none;
+  padding: 10px;
+  font-size: 20px;
+}
+.order form input[type=text],
+.order form input[type=email],
+.order form input[type=tel],
+.order form input[type=number],
+.order form textarea {
+  width: 350px;
+  height: 50px;
+}
+.order form input[type=number] {
+  width: 60px;
+  margin: 0;
+  display: block;
+}
+.order form textarea {
+  height: 250px;
+  font-size: 22px;
+}
+.order form label {
+  color: rgb(255, 255, 255);
+  display: block;
+  font-size: 25px;
+  margin-right: 10px;
+  width: 250px;
+}
+.order form .cakeNumber {
+  width: 350px;
+  height: 70px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.order form input[type=submit] {
+  width: 100px;
+  height: 60px;
+  color: rgb(255, 255, 255);
+  font-weight: bolder;
+  font-size: 20px;
+  background: rgb(71, 66, 66);
+}
+.order form input[type=submit]:hover {
+  transition: 0.5s;
+  background: rgb(31, 30, 30);
+}
+.order #completelyPrice {
+  color: rgb(255, 255, 255);
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.contact {
+  min-height: 100vh;
+  background: rgb(71, 66, 66);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.contact form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.contact form input,
+.contact form textarea {
+  display: block;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 15px;
+  outline: none;
+  padding: 10px;
+  font-size: 20px;
+}
+.contact form input[type=text],
+.contact form input[type=email],
+.contact form input[type=tel],
+.contact form input[type=number],
+.contact form textarea {
+  width: 350px;
+  height: 50px;
+}
+.contact form input[type=number] {
+  width: 60px;
+  margin: 0;
+  display: block;
+}
+.contact form textarea {
+  height: 250px;
+  font-size: 22px;
+}
+.contact form label {
+  color: rgb(255, 255, 255);
+  display: block;
+  font-size: 25px;
+  margin-right: 10px;
+  width: 250px;
+}
+.contact form .cakeNumber {
+  width: 350px;
+  height: 70px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.contact form input[type=submit] {
+  width: 100px;
+  height: 60px;
+  color: rgb(255, 255, 255);
+  font-weight: bolder;
+  font-size: 20px;
+  background: rgb(31, 30, 30);
+}
+.contact form input[type=submit]:hover {
+  transition: 0.5s;
+  background: rgb(71, 66, 66);
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.sectionHeader {
+  color: rgb(255, 255, 255);
+  font-size: 60px;
+  margin-bottom: 30px;
+}
+
+footer {
+  background: rgb(31, 30, 30);
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+footer p {
+  color: rgb(255, 255, 255);
+}
+
+@keyframes fromTop {
+  0% {
+    opacity: 0.2;
+    transform: translateY(-250px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0px);
+  }
+}
+@keyframes fromBottom {
+  0% {
+    opacity: 0.2;
+    transform: translateY(250px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0px);
+  }
+}
+.messageBox {
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 350px;
+  height: 100px;
+  z-index: 500;
+  text-align: center;
+}
+.messageBox .background {
+  width: 100%;
+  height: 100%;
+  background: rgb(71, 66, 66);
+  opacity: 75%;
+  border-radius: 10px;
+}
+.messageBox p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: -moz-max-content;
+  width: max-content;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: bolder;
+}
+.messageBox .iconsDiv {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 100;
+  cursor: pointer;
+}
+.messageBox .iconsDiv img {
+  width: 25px;
+  height: 25px;
+}/*# sourceMappingURL=style.css.map */

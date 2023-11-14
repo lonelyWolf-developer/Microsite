@@ -2,7 +2,7 @@
 
 session_start();
 
-require "./classes/Url.php";
+require "../classes/Url.php";
 
 header('Content-Type: text/html; charset=utf-8');
 

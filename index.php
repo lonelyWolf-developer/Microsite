@@ -2,8 +2,24 @@
 
 session_start();
 
+require "./classes/Validate.php";
+
 $date = new DateTime();
 $aktualDate = $date->format("Y");
+$name = "";
+$email = "";
+$message = "";
+
+if (isset($_SESSION["name"]) && $_SESSION["name"] != "" && isset($_SESSION["email"]) && $_SESSION["email"] != "" && isset($_SESSION["message"]) && $_SESSION["message"] != "") {
+    $name = $_SESSION["name"];
+    $email = $_SESSION["email"];
+    $message = $_SESSION["message"];
+}
+
+$questions = Validate::$questions;
+$answers = Validate::$answers;
+$line = Validate::random($questions, $answers);
+$question = $questions[$line];
 
 ?>
 
@@ -135,9 +151,12 @@ $aktualDate = $date->format("Y");
         <section class="contact" id="con">
             <h1 class="sectionHeader">Napište nám</h1>
             <form action="assets/mailer.php" method="post">
-                <input type="text" name="name" placeholder="Jméno a příjmení" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <textarea name="message" placeholder="Text zprávy..." required></textarea>
+                <input type="text" name="name" placeholder="Jméno a příjmení" value="<?= htmlspecialchars($name) ?>" required>
+                <input type="email" name="email" placeholder="Email" value="<?= htmlspecialchars($email) ?>" required>
+                <textarea name="message" placeholder="Text zprávy..." required><?= htmlspecialchars($message) ?></textarea>
+                <label for="controlQuestion" class="controlLabel">Odpověz slovy...</label>
+                <input type="text" name="question" id="controlQuestion" placeholder="<?= $question ?>" required>                    
+                <input type="hidden" name="line" value="<?= $line ?>">
                 <input type="submit" value="Odeslat">
             </form>
         </section>

@@ -3,14 +3,18 @@
 session_start();
 
 require "../classes/Url.php";
+require "../classes/Validate.php";
 
 header('Content-Type: text/html; charset=utf-8');
 
 // Loading field from form - name, email a message; deleting white chars; deleting HTML
-$name = strip_tags(trim($_POST["name"]));
-$name = str_replace(array("\r", "\n"), array(" ", " "), $name);
+$name = Validate::validation($_POST["name"]);
 $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
 $message = trim($_POST["message"]);
+$question = strtolower(trim($_POST["question"]));
+$line = $_POST["line"];
+$questions = Validate::$questions;
+$answers = Validate::$answers;
 
 // Checking data or redirect to error addres
 if (empty($name) or empty($message) or !filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -19,25 +23,42 @@ if (empty($name) or empty($message) or !filter_var($email, FILTER_VALIDATE_EMAIL
     exit;
 }
 
-// Set your email
-$recipient = "spravce@vlksamotar.cz";
+if(isset($_SESSION["name"]) && isset($_SESSION["email"]) && isset($_SESSION["message"])){
+    $_SESSION["name"] = "";
+    $_SESSION["email"] = "";
+    $_SESSION["message"] = "";
+}
 
-// Set subject of post email
-$subject = "Máte nový kontakt od: $name";
+if(Validate::compare($question, $line, $questions, $answers)){
+    // Set your email
+    $recipient = "spravce@vlksamotar.cz";
 
-// Content of post email
-$email_content = "Jméno: $name\n";
-$email_content .= "Email: $email\n\n";
-$email_content .= "Zpráva:\n$message\n";
+    // Set subject of post email
+    $subject = "Máte nový kontakt od: $name";
 
-// Email header
-$email_headers = "MIME-Version: 1.0\r\n" . "From: =?utf-8?b?" . base64_encode($name) . "?= <" . $email . ">\r\n" . "Content-Type: text/plain; charset=utf-8\r\n";
+    // Content of post email
+    $email_content = "Jméno: $name\n";
+    $email_content .= "Email: $email\n\n";
+    $email_content .= "Zpráva:\n$message\n";
 
-// Send email
-mail($recipient, $subject, $email_content, $email_headers);
+    // Email header
+    $email_headers = "MIME-Version: 1.0\r\n" . "From: =?utf-8?b?" . base64_encode($name) . "?= <" . $email . ">\r\n" . "Content-Type: text/plain; charset=utf-8\r\n";
 
-// Redirect to some address, if everything is all right
-$_SESSION["success"] = "Odeslání proběhlo úspěšně.";
-Url::redirectUrl("/#con");
+    // Send email
+    mail($recipient, $subject, $email_content, $email_headers);
+
+    // Redirect to some address, if everything is all right
+    $_SESSION["success"] = "Odeslání proběhlo úspěšně.";
+    Url::redirectUrl("/#con");  
+}else{
+    $_SESSION["name"] = $name;
+    $_SESSION["email"] = $email;
+    $_SESSION["message"] = $message;
+
+    $_SESSION["success"] = "Zkus to ještě jednou";
+
+    Url::redirectUrl("/#con");
+}
+
 
 ?>

@@ -216,6 +216,9 @@ nav ul li a.active {
   margin-right: 10px;
   width: 250px;
 }
+.order form .controlLabel {
+  margin-bottom: 5px;
+}
 .order form .cakeNumber {
   width: 350px;
   height: 70px;
@@ -295,6 +298,9 @@ nav ul li a.active {
   font-size: 25px;
   margin-right: 10px;
   width: 250px;
+}
+.contact form .controlLabel {
+  margin-bottom: 5px;
 }
 .contact form .cakeNumber {
   width: 350px;
